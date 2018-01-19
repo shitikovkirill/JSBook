@@ -12,5 +12,5 @@ npx babel new_in_es6/src --out-dir new_in_es6/lib --presets=es2015
 
 ### Start tests
 ```
-npx qunit new_in_es6/
+npx qunit new_in_es6/test
 ```

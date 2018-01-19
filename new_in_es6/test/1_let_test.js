@@ -1,4 +1,4 @@
-QUnit.test( "let", function( assert ) {
+QUnit.test( "Let:", function( assert ) {
     var name = "test old";
 
     {
@@ -10,29 +10,51 @@ QUnit.test( "let", function( assert ) {
 });
 
 
-QUnit.test( "let 2", function( assert ) {
+QUnit.test( "Let: podem", function( assert ) {
     assert.ok( name == undefined);
     var name = "test old";
 
-    {
-        //assert.throws( name, ReferenceError);
-        let name ="test new";
-    }
+    assert.throws( function () {
+        {
+            name = 3;
+            let name ="test new";
+        }
+    }, ReferenceError, 'You can not get var before let');
 });
 
-QUnit.test( "let and for", function( assert ) {
+QUnit.test( "Let: get var out of scope", function( assert ) {
+    assert.throws( function () {
+        {
+            let name ="test new";
+            assert.ok(name == "test new")
+        }
+        name == "test new"
+    }, ReferenceError, 'You can not get var before let');
+
+    {
+        var name2 ="test new";
+    }
+    name2 == "test new";
+    assert.ok(name2 == "test new")
+});
+
+QUnit.test( "Let: for with var", function( assert ) {
     assert.ok( a == undefined);
     for (var a=0; a < 10;a++){
         assert.ok( a < 10);
     }
-
-    //assert.throws( name, ReferenceError);
-    for (let a=0; a < 10;a++){
-        assert.ok( a < 10);
-    }
 });
 
-QUnit.test( "let and for and closure", function( assert ) {
+QUnit.test( "Let: for with let", function( assert ) {
+    assert.throws( function () {
+        a == undefined
+        for (let a=0; a < 10;a++){
+            assert.ok(a < 10);
+        }
+    }, ReferenceError, 'You can not get var before let');
+});
+
+QUnit.test( "Let: for and closure", function( assert ) {
     funcs = [];
 
     for (let a = 0; a < 10; a++){
@@ -46,8 +68,8 @@ QUnit.test( "let and for and closure", function( assert ) {
 
 });
 
-QUnit.test( "var and for and closure", function( assert ) {
-    funcs = [];
+QUnit.test( "Let: var and for and closure", function( assert ) {
+    var funcs = [];
 
     for (var a = 0; a < 10; a++){
         funcs.push(function () {
