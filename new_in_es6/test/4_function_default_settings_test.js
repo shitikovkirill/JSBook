@@ -3,7 +3,26 @@ QUnit.test( "Function: default value", function( assert ) {
         return x+y
     }
 
-    assert.ok(foo(1)==32);
+    assert.equal(foo(1), 32);
+});
+
+QUnit.test( "Function: function as default value and closure", function( assert ) {
+
+
+    function foo() {
+
+        return y;
+    }
+
+    assert.throws( function () {
+        foo();
+    }, ReferenceError);
+
+    let y = 5;
+    assert.deepEqual(foo(), 5);
+
+    y = 6;
+    assert.equal(foo(), 6);
 });
 
 QUnit.test( "Function: function as default value and closure", function( assert ) {

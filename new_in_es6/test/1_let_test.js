@@ -6,12 +6,15 @@ QUnit.test( "Let:", function( assert ) {
         assert.ok( name == "test new");
     }
 
-    assert.ok( name == "test old");
+    assert.equal( name, "test old");
 });
 
 
 QUnit.test( "Let: podem", function( assert ) {
-    assert.ok( name == undefined);
+    var test;
+    assert.ok(test == undefined);
+
+    assert.ok(name == undefined);
     var name = "test old";
 
     assert.throws( function () {
@@ -34,8 +37,8 @@ QUnit.test( "Let: get var out of scope", function( assert ) {
     {
         var name2 ="test new";
     }
-    name2 == "test new";
-    assert.ok(name2 == "test new")
+    name2 = "test old";
+    assert.equal(name2, "test old")
 });
 
 QUnit.test( "Let: for with var", function( assert ) {
@@ -65,6 +68,7 @@ QUnit.test( "Let: for and closure", function( assert ) {
 
     assert.equal( funcs[0](), 0);
     assert.equal( funcs[3](), 3);
+    assert.equal( funcs[9](), 9);
 
 });
 
@@ -77,6 +81,7 @@ QUnit.test( "Let: var and for and closure", function( assert ) {
         })
     }
 
+    assert.equal( a, 10);
     assert.equal( funcs[0](), 10);
     assert.equal( funcs[3](), 10);
 
