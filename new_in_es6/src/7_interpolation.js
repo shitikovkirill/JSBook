@@ -4,8 +4,8 @@ var hello = 'Hello ${name}';
 
 // -----------------
 
-var text = 'etyrterty  
-dfgsfsgfgfg';
+var text = `etyrterty  
+dfgsfsgfgfg`;
 
 // -----------------
 
@@ -15,8 +15,8 @@ function upper(s){
 
 var who = "reader";
 
-var text = 'werew ${upper("fff")} h
-dggd ${upper('${who}s')} vvv';
+var text = `werew ${upper("fff")} h
+dggd ${upper('${who}s')} vvv`;
 
 // -----------------
 
