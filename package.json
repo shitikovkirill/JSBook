@@ -4,7 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d=dist --presets=es2015"
+    "test": "qunit new_in_es6/test",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "browserify -d new_in_es6/src/1_lat.js -o new_in_es6/dist/1_lat.js",
+    "watch": "watchify -v -d new_in_es6/src/1_lat.js -o new_in_es6/dist/1_lat.js"
+  },
+  "browserify": {
+    "transform": [
+      ["babelify", {"sourceMap": true}]
+    ]
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +22,10 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
-    "qunit": "^2.5.0"
+    "qunit": "^2.5.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
+    "nodemon": "^1.11.0",
+    "watchify": "^3.7.0"
   }
 }
