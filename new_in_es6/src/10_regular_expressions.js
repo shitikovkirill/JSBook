@@ -17,3 +17,10 @@ re1.lastIndex;
 re1.lastIndex;
 re1.test(str);
 re1.lastIndex;
+
+// ------------------
+var re=/foo/gi;
+var flags = re.toString().match(/\/([gim]*)$/)[1];
+flags, "gi";
+// New
+re.flags, "gi";
