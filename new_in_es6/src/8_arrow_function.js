@@ -5,4 +5,14 @@ let f3 = (x, y) => {
 	y++;
 	x*=3;
 	return (x+y+z)/2;
+};
+
+function minus(number, func){
+
 }
+
+let controller = {
+	makeRequest: function(number){
+
+	}
+};
