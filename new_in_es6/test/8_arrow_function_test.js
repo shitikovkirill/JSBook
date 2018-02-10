@@ -1,17 +1,31 @@
 QUnit.test( "Arrow function: 1", function( assert ) {
 
-	let f = () => 12;
+    function f_old() {
+        return 12;
+    }
 
-    assert.equal(f(), 12)
+    assert.equal(f_old(), 12);
+
+    let f = () => 12;
+
+    assert.equal(f(), 12);
 
 });
 
 QUnit.test( "Arrow function: 2", function( assert ) {
 
+    function f_old(x) {
+        return x*2;
+    }
+
+    assert.equal(f_old(6), 12);
+
     let f = x => x*2;
 
-    assert.equal(f(6), 12)
+    assert.equal(f(6), 12);
 
+    let b =(v=>v*2);
+    assert.equal(b(6), 12);
 });
 
 QUnit.test( "Arrow function: 3", function( assert ) {
@@ -28,11 +42,24 @@ QUnit.test( "Arrow function: 3", function( assert ) {
 });
 
 QUnit.test( "Arrow function: 3", function( assert ) {
-
     var a = [1,2,3,4,5];
-    a=a.map(v=>v*2);
 
-    assert.deepEqual(a, [2,4,6,8,10])
+    function foo(arg) {
+        return arg*2;
+    }
+    var a_1 = a.map(foo);
+
+    assert.deepEqual(a_1, [2,4,6,8,10]);
+
+    var a_1 = a.map(function (arg) {
+        return arg*2;
+    });
+
+    assert.deepEqual(a_1, [2,4,6,8,10]);
+
+    var a_2=a.map(v=>v*2);
+
+    assert.deepEqual(a_2, [2,4,6,8,10]);
 
 });
 

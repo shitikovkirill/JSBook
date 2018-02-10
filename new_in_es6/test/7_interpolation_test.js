@@ -10,6 +10,10 @@ QUnit.test( "Interpolation: 1", function( assert ) {
 });
 
 QUnit.test( "Interpolation: 2", function( assert ) {
+	var text_old = "test  \n" +
+		"test";
+
+    assert.equal(text_old, "test  \ntest");
 
 	var text = `test  
 test`;

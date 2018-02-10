@@ -9,8 +9,8 @@ QUnit.test( "Object: 1", function( assert ) {
     assert.deepEqual(old, {a:2, b:4});
 
     var new_ = {
-        'a':a,
-        'b':b
+        a,
+        b
     };
 
     assert.deepEqual(new_, {a:2, b:4});
