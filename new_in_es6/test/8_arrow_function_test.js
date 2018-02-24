@@ -10,6 +10,10 @@ QUnit.test( "Arrow function: 1", function( assert ) {
 
     assert.equal(f(), 12);
 
+    let f2 = () => {
+        return 12;
+    };
+    assert.equal(f2(), 12);
 });
 
 QUnit.test( "Arrow function: 2", function( assert ) {
@@ -23,6 +27,9 @@ QUnit.test( "Arrow function: 2", function( assert ) {
     let f = x => x*2;
 
     assert.equal(f(6), 12);
+
+    let r = (x) => x*2;
+    assert.equal(r(6), 12);
 
     let b =(v=>v*2);
     assert.equal(b(6), 12);

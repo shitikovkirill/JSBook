@@ -119,8 +119,8 @@ QUnit.test( "Iterator: using", function( assert ) {
     assert.equal(x, 1);
     assert.equal(y, 2);
 
-    let it = range2[Symbol.iterator]();
-    var [z,...w] = it;
+    let it2 = range2[Symbol.iterator]();
+    var [z,...w] = it2;
     assert.equal(z, 3);
     assert.deepEqual(w, [4,5]);
 });

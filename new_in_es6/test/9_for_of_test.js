@@ -3,7 +3,8 @@ QUnit.test( "Arrow function: this call applay", function( assert ) {
 
     var temp1 = [];
     for (var idx in a) {
-        temp1.push(idx)
+        temp1.push(idx);
+        a[idx]
     }
     assert.deepEqual(temp1, ["0","1","2","3","4"]);
 

@@ -45,13 +45,24 @@ QUnit.test( "Object: 4", function( assert ) {
 
     var o = {
         __id: 10,
+        cont_get_test: 0,
+        __test2: 'test attribute',
+
         get id(){
             return this.__id++;
         },
         set id(v){
             this.__id = v;
+        },
+
+        get test2(){
+            this.cont_get_test++;
+            return this.__test2;
         }
     };
+
+    assert.equal(o.test2, 'test attribute');
+    assert.equal(o.cont_get_test, 1);
 
     assert.equal(o.id, 10);
     assert.equal(o.id, 11);
